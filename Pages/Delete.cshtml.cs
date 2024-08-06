@@ -2,11 +2,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace PinewoodExercise.Pages
 {
-    public class IndexModel : PageModel
+    public class DeleteModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ILogger<DeleteModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public DeleteModel(ILogger<DeleteModel> logger)
         {
             _logger = logger;
         }

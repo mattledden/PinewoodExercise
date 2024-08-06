@@ -1,0 +1,16 @@
+﻿@page
+@model EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Edit a customer</h1>
+</div>
+
+<form method="get">
+    <label for="name">Search for a customer's name:</label>
+    <input type="text" name="name" value="" />
+    <br />
+    <input type="submit" name="submit" value="Search" />
+</form>
