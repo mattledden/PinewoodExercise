@@ -13,8 +13,6 @@ public static class CustomerList
 
     public static void EditCustomer(Customer originalCustomer, Customer newValues)
     {
-        Console.WriteLine("original address: " + originalCustomer.Address);
-        Console.WriteLine("new address: " + newValues.Address);
         originalCustomer.Name = newValues.Name;
         originalCustomer.Address = newValues.Address;
         originalCustomer.Number = newValues.Number;
@@ -24,10 +22,5 @@ public static class CustomerList
     public static Customer GetCustomer(string name)
     {
         return _customers.Find(c => c.Name == name);
-    }
-
-    public static List<Customer> GetCustomers()
-    {
-        return _customers;
     }
 }

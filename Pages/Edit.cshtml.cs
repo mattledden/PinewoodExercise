@@ -41,10 +41,7 @@ namespace PinewoodExercise.Pages
             else
             {
                 Customer newValues = new(Request.Form["name"], Request.Form["address"], Request.Form["number"], Request.Form["email"]);
-                _logger.LogInformation("new address : " + newValues.Address);
-                _logger.LogInformation("name : " + Request.Form["name"]);
                 _customer = CustomerList.GetCustomer(Request.Form["name"]);
-                _logger.LogInformation("old address : " + _customer.Address);
                 CustomerList.EditCustomer(_customer, newValues);
                 _customer = null; // set to null to clear the form
             }
