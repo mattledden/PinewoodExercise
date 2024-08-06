@@ -5,8 +5,10 @@ namespace PinewoodExercise.Pages
     public class EditModel : PageModel
     {
         private readonly ILogger<EditModel> _logger;
-        public Customer _customer;
+        public Customer? _customer;
         public string _name;
+        public bool _error = false;
+        public string _errorMessage = "";
 
         public EditModel(ILogger<EditModel> logger)
         {
@@ -22,6 +24,8 @@ namespace PinewoodExercise.Pages
                 if (_customer == null)
                 {
                     _logger.LogError("Customer not found");
+                    _error = true;
+                    _errorMessage = "Customer not found";
                 }
             }
         }
@@ -31,6 +35,8 @@ namespace PinewoodExercise.Pages
             if (Request.Form["name"] == "")
             {
                 _logger.LogError("No customer name given");
+                _error = true;
+                _errorMessage = "No customer name given";
             }
             else
             {
@@ -40,6 +46,7 @@ namespace PinewoodExercise.Pages
                 _customer = CustomerList.GetCustomer(Request.Form["name"]);
                 _logger.LogInformation("old address : " + _customer.Address);
                 CustomerList.EditCustomer(_customer, newValues);
+                _customer = null; // set to null to clear the form
             }
         }
     }

@@ -8,6 +8,11 @@
     <h1 class="display-4">Edit a customer</h1>
 </div>
 
+@if (Model._error)
+{
+    <p style="color:red;">@Model._errorMessage</p>
+}
+
 <form method="post" asp-page-handler="Search">
     <label for="name">Search for a customer's name:</label>
     <input type="text" name="name" value="" />
