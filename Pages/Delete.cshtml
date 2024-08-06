@@ -8,9 +8,22 @@
     <h1 class="display-4">Delete a customer</h1>
 </div>
 
-<form method="get">
+<form method="post" asp-page-handler="Search">
     <label for="name">Search for a customer's name:</label>
     <input type="text" name="name" value="" />
     <br />
     <input type="submit" name="submit" value="Search" />
 </form>
+
+@if (Model._customer != null)
+{
+    <form method="post" asp-page-handler="Delete">
+        <p>Name: @Model._customer.Name</p>
+        <p>Address: @Model._customer.Address</p>
+        <p>Number: @Model._customer.Number</p>
+        <p>Email: @Model._customer.Email</p>
+        <label for="name">Type customer's name to confirm:</label>
+        <input type="text" name="name" value="" />
+        <input type="submit" name="submit" value="Delete" />
+    </form>
+}

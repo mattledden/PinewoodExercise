@@ -13,11 +13,14 @@ namespace PinewoodExercise.Pages
 
         public void OnPost()
         {
-            if (Request.Form["name"] != "")
+            if (Request.Form["name"] == "")
             {
-                // Do something here
-                _logger.LogInformation(Request.Form["name"]);
-
+                _logger.LogError("No customer name given");
+            }
+            else
+            {
+                Customer newCustomer = new(Request.Form["name"], Request.Form["address"], Request.Form["number"], Request.Form["email"]);
+                CustomerList.AddCustomer(newCustomer);
             }
         }
     }
